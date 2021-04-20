@@ -1,4 +1,136 @@
 body {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
+  padding: 0;
+  background-color: #181a1b;
+  color: #fff;
+}
+
+.home {
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.home .app_content {
+  width: 100%;
+  height: 100vh;
+}
+
+.home .app_content:last-child ul li {
+  border-color: #46ff6e;
+}
+
+.home .app_content h2 {
+  font-family: "Original Surfer", cursive;
+  font-size: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+  }
+  .home .app_content {
+    width: 50%;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  background-color: #242627;
+  padding: 20px;
+  margin: 0 auto 10px;
+  max-width: 400px;
+  border-left: 5px red solid;
+  position: relative;
+  text-align: left;
+}
+
+ul li span {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1;
+  border: solid 1px #fff;
+  border-radius: 100%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul li h1 {
+  font-size: 2rem;
+}
+
+ul li p {
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  ul li {
+    margin: 0 0 10px;
+  }
+}
+
+.app_content__formulario {
+  background-color: #242627;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.app_content__formulario input {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #fff;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.app_content__formulario textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #fff;
+  height: 100px;
+  border-radius: 5px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.app_content__formulario button {
+  border: none;
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #1d1d1d;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .app_content__formulario {
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,42 @@
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+        background-color:#242627;
+        padding: 20px;
+        margin:0 auto 10px;
+        max-width: 400px;
+        border-left: 5px red solid;
+        position: relative;
+        text-align: left;
+        span{
+            position: absolute;
+            right: 20px;
+            top:20px;
+            z-index: 1;
+            border:solid 1px #fff;
+            border-radius: 100%;
+            display: block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        h1{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+    }
+}
+@include breakpoint("medium"){
+   ul{
+       li{
+        margin:0 0 10px;
+       }
+    }
+  }

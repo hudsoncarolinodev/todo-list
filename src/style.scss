@@ -1,5 +1,35 @@
 // font-family: 'Original Surfer', cursive;
 //font-family: 'Work Sans', sans-serif;
+
+//VARIÁVEIS
+$backgroundFundo: #181a1b;
+$fontPrincipal:'Original Surfer', cursive;
+$fontSecundaria:'Work Sans', sans-serif; 
+$breakpoints:(
+    small:499px,
+    medium:768px,
+    large:991px,
+    xlarge:1200,
+    full:1300px,
+);
+
 body{
-    font-family: 'Work Sans', sans-serif; 
+    font-family: $fontSecundaria;
+    padding:0;
+    background-color: $backgroundFundo;
+    color:#fff
 }
+@mixin breakpoint($size){
+    $breakpoint-value: map-get($breakpoints,$size);
+
+    @media screen and (min-width: $breakpoint-value){
+        @content;
+    }
+}
+@import './views/home';
+@import './components/ListaTarefas';
+@import './components/FormularioAdicionarTarefa';
+
+
+
+

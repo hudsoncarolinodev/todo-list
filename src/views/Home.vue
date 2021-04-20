@@ -2,9 +2,9 @@
   <div class="home">
     <div class="app_content">
       <h2>Adicionar novas tarefa</h2>
-      <FormularioAdicionarTarefa />
+      <FormularioAdicionarTarefa @newTask = "pushNewTask($event)" />
       <h3>Lista de tarefas</h3>
-      <ListaTarefas />
+      <ListaTarefas v-bind:newListTasks="listTasks" />
     </div>
    
     <div class="app_content">
@@ -26,5 +26,15 @@ export default {
     ListaTarefas,
     FormListaTarefasConcluidasulario
   },
+  data(){
+    return{
+      listTasks:[]
+    }
+  },
+  methods:{
+    pushNewTask(newTask){
+      this.listTasks.push(newTask)
+    }
+  }
 }
 </script>

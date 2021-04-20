@@ -14,16 +14,17 @@ export default {
         }
     },
     methods:{
-        getNewTask(){
-
+        getNewTask(taks){
+            this.$emit("newTask", taks)
         },
         getTaskValidation(){
             const inputValue = this.$el.querySelector("input").value
-            const textValue = this.$el.querySelector("textarea").value
+            const textValue  = this.$el.querySelector("textarea").value
             
             if(inputValue.trim() !== "" && textValue.trim() !== ""){
                 this.task.name         = inputValue
                 this.task.descripition = textValue
+                this.getNewTask(this.task)
                 this.limparInputs()
             }else{
                 this.error()
@@ -37,14 +38,6 @@ export default {
             this.$el.querySelector("textarea").value = ""
         },
     },
-    watch:{
-        task(novo){
-            console.log(novo)
-            
-        }
-    }
-
- 
 }
 </script>
 

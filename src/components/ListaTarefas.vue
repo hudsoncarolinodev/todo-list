@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="(newTask, index) in listTasks" :key="newTask.name">
+    <li v-for="(newTask, index) in newListTasks" :key="newTask.name">
         <span @click="deleteTask(index)">X</span>
         <h1>{{newTask.name}}</h1>
         <p>{{newTask.descripition}}</p>
@@ -12,23 +12,14 @@
 <script>
 export default {
   props:['newListTasks'],
-  data(){
-      return{
-          listTasks:[
-            {
-                name:"Taks Exemple",
-                descripition:"Lorem ipsum dolor, sit amet consectetur adipisicing elit."
-            }],
-            
-      }
-  },
+ 
   methods:{
      deleteTask(index){
-        this.listTasks.splice(index,1)
+         this.$emit("deleteTask",index)
      },
       concluirTask(index,task){
         this.$emit("taskConcluida",task)
-        this.listTasks.splice(index,1)
+        this.$emit("deleteTaskConcluida",index)
      }
 
   },

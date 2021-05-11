@@ -7,6 +7,8 @@
       <ListaTarefas 
       v-bind:newListTasks="listTasks"  
       @taskConcluida = "taskConcluida($event)"
+      @deleteTask = "deleteTask($event)"
+      @deleteTaskConcluida = "deleteTask($event)"
       />
     </div>
    
@@ -46,7 +48,40 @@ export default {
     },
     deletatTask(i){
       this.taskConcluidas.splice(i,1)
+    },
+    deleteTask(i){
+      this.listTasks.splice(i,1)
     }
+  },
+  watch:{
+    listTasks:{
+      deep: true,
+      handler(){
+        localStorage.setItem("listTasks", JSON.stringify(this.listTasks))
+      }
+    },
+    taskConcluidas:{
+       deep: true,
+      handler(){
+        localStorage.setItem("listTasksConsluidas", JSON.stringify(this.taskConcluidas))
+      }
+    }
+  },
+  created(){
+    const jasonListTasks = localStorage.getItem("listTasks")
+    const jasonListTasksConsluidas = localStorage.getItem("listTasksConsluidas")
+    if(Array.isArray(JSON.parse(jasonListTasks))){
+       this.listTasks =  JSON.parse(jasonListTasks)
+    }else{
+      this.listTasks  = []
+    }
+
+    if(Array.isArray(JSON.parse(jasonListTasksConsluidas))){
+       this.taskConcluidas =  JSON.parse(jasonListTasksConsluidas)
+    }else{
+      this.taskConcluidas  = []
+    }
+   
   }
 }
 </script>

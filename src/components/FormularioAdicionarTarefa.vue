@@ -1,7 +1,7 @@
 <template>
     <div class="app_content__formulario">
-        <input type="text" v-model="name" placeholder="Adicionar nova tarefa">
-        <textarea placeholder="Descrição Tarefa" v-model="descripition" ></textarea>
+        <input type="text" v-model="name" @keydown.enter="criarTask()" placeholder="Adicionar nova tarefa">
+        <textarea placeholder="Descrição Tarefa" @keydown.enter="criarTask()" v-model="descripition" ></textarea>
         <button @click="criarTask()" >Adicionar</button>
     </div>
 </template>

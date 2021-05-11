@@ -1,8 +1,8 @@
 <template>
     <div class="app_content__formulario">
-        <input type="text" placeholder="Adicionar nova tarefa">
-        <textarea placeholder="Descrição Tarefa" ></textarea>
-        <button @click="getTaskValidation()" >Adicionar</button>
+        <input type="text" v-model="name" placeholder="Adicionar nova tarefa">
+        <textarea placeholder="Descrição Tarefa" v-model="descripition" ></textarea>
+        <button @click="criarTask()" >Adicionar</button>
     </div>
 </template>
 
@@ -10,32 +10,19 @@
 export default {
     data(){
         return {
-            task:{},
+            name: "",
+            descripition: "",
         }
     },
     methods:{
-        getNewTask(taks){
-            this.$emit("newTask", taks)
-        },
-        getTaskValidation(){
-            const inputValue = this.$el.querySelector("input").value
-            const textValue  = this.$el.querySelector("textarea").value
+        criarTask(){
             
-            if(inputValue.trim() !== "" && textValue.trim() !== ""){
-                this.task.name         = inputValue
-                this.task.descripition = textValue
-                this.getNewTask(this.task)
-                this.limparInputs()
-            }else{
-                this.error()
-            }
-        },
-        error(){
-            console.log("error")
-        },
-        limparInputs(){
-            this.$el.querySelector("input").value = ""
-            this.$el.querySelector("textarea").value = ""
+            this.$emit("newTask", {
+                name:this.name,
+                descripition:this.descripition
+            })
+           this.name = ""
+           this.descripition = ""
         },
     },
 }

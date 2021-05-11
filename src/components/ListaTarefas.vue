@@ -1,9 +1,10 @@
 <template>
   <ul>
-    <li v-for="(newTask,i) in listTasks" v-bind:key="i">
-        <span>X</span>
+    <li v-for="(newTask, index) in listTasks" :key="newTask.name">
+        <span @click="deleteTask(index)">X</span>
         <h1>{{newTask.name}}</h1>
-        <p>{{newTask.name}}</p>
+        <p>{{newTask.descripition}}</p>
+        <button @click="concluirTask(index,newTask)">Concluir</button>
     </li>
 </ul>
 </template>
@@ -17,20 +18,22 @@ export default {
             {
                 name:"Taks Exemple",
                 descripition:"Lorem ipsum dolor, sit amet consectetur adipisicing elit."
-            }]
+            }],
+            
       }
   },
   methods:{
-     limparLista(){
-         this.$el.querySelectorAll("li").forEach(element => {
-             element.remove()
-         });
-         console.log(this.$el.querySelectorAll("li"))
+     deleteTask(index){
+        this.listTasks.splice(index,1)
+     },
+      concluirTask(index,task){
+        this.$emit("taskConcluida",task)
+        this.listTasks.splice(index,1)
      }
+
   },
    watch:{
         newListTasks(){
-           
           this.listTasks = this.newListTasks
         }
     }

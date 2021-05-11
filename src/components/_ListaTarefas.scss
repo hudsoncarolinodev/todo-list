@@ -4,7 +4,7 @@ ul{
     margin: 0;
     li{
         background-color:#242627;
-        padding: 20px;
+        padding: 20px 20px 50px;
         margin:0 auto 10px;
         max-width: 400px;
         border-left: 5px red solid;
@@ -30,6 +30,15 @@ ul{
         }
         p{
             font-size: 1rem;
+        }
+        button{
+            border-color: initial;
+            background-color: #7fcc00;
+            border-radius: 5px;
+            padding: 10px;
+            float: right;
+            font-weight: bold;
+            border: none;
         }
     }
 }
